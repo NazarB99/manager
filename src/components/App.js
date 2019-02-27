@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import { Provider } from "react-redux";
-import { View, Text } from 'react-native';
+import RouterComponent from '../Router';
 import store from '../store/store';
 import firebase from '@firebase/app';
 import '@firebase/auth';
-import LoginForm from './LoginForm';
 
 class App extends Component {
 
@@ -18,11 +17,10 @@ class App extends Component {
             messagingSenderId: "1054521619767"
         })
     }
-
     render() {
         return (
             <Provider store={store}>
-                <LoginForm/>
+                <RouterComponent/>
             </Provider>
         )
     }

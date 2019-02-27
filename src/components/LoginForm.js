@@ -21,7 +21,6 @@ class LoginForm extends Component {
 
     renderErrorOrShowSpinner = () => {
         const { error, loading } = this.props.auth;
-        console.log(error);
         if (error !== null) {
             return (
                 <View style={{ backgroundColor: 'white', marginTop: 10 }}>
