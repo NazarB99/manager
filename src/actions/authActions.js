@@ -1,6 +1,7 @@
 import { EMAIL_CHANGED, PASSWORD_CHANGED, LOGIN_USER, AUTH_ERROR, AUTH_SUCCESS, AUTH_LOADING } from './types';
 import firebase from '@firebase/app';
 import '@firebase/auth';
+import { Actions } from 'react-native-router-flux';
 
 export const emailTyping = (email) => dispatch => {
     dispatch({
@@ -39,6 +40,7 @@ export const loginSuccess = (user) => dispatch => {
         type: AUTH_SUCCESS,
         payload: user
     })
+    Actions.employees_list();
 }
 
 export const loginFail = (err) => dispatch => {

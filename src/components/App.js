@@ -20,7 +20,7 @@ class App extends Component {
     render() {
         return (
             <Provider store={store}>
-                <RouterComponent/>
+                <RouterComponent />
             </Provider>
         )
     }
