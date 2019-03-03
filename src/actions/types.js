@@ -4,3 +4,8 @@ export const LOGIN_USER = 'LOGIN_USER';
 export const AUTH_LOADING = 'AUTH_LOADING';
 export const AUTH_SUCCESS = 'AUTH_SUCCESS';
 export const AUTH_ERROR = 'AUTH_ERROR';
+
+export const EMPLOYER_UPDATE = 'EMPLOYER_UPDATE';
+export const EMPLOYER_CREATE = 'EMPLOYER_CREATE';
+export const GET_EMPLOYEES = 'GET_EMPLOYEES';
+export const RESET_DATA = 'RESET_DATA';

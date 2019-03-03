@@ -8,14 +8,14 @@ export const emailTyping = (email) => dispatch => {
         type: EMAIL_CHANGED,
         payload: email
     })
-}
+};
 
 export const passwordTyping = (password) => dispatch => {
     dispatch({
         type: PASSWORD_CHANGED,
         payload: password
     })
-}
+};
 
 export const loginUser = (email, password) => dispatch => {
     dispatch(loginLoading());
@@ -26,26 +26,26 @@ export const loginUser = (email, password) => dispatch => {
         .catch(err => {
             dispatch(loginFail(err.message));
         })
-}
+};
 
 export const loginLoading = () => dispatch => {
     dispatch({
         type:AUTH_LOADING,
         payload:true
     })
-}
+};
 
 export const loginSuccess = (user) => dispatch => {
     dispatch({
         type: AUTH_SUCCESS,
         payload: user
-    })
-    Actions.employees_list();
-}
+    });
+    Actions.main().employees_list();
+};
 
 export const loginFail = (err) => dispatch => {
     dispatch({
         type: AUTH_ERROR,
         payload:err
     })
-}
+};
