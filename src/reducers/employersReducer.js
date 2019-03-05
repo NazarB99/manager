@@ -1,9 +1,10 @@
-import {EMPLOYER_CREATE, EMPLOYER_UPDATE, GET_EMPLOYEES, RESET_DATA} from '../actions/types';
+import {EMPLOYER_CREATE, EMPLOYER_UPDATE, GET_EMPLOYEES, RESET_DATA,SET_EMPLOYEES} from '../actions/types';
 
 const initialState ={
     name:'',
     phone:'',
     shift:'monday',
+    uid:'',
     employees:{}
 };
 
@@ -25,6 +26,14 @@ export default function (state = initialState, action) {
             return{
                 ...state,
                 employees:action.payload
+            };
+        case SET_EMPLOYEES:
+            return{
+                ...state,
+                name:action.payload.name,
+                phone:action.payload.phone,
+                shift:action.payload.shift,
+                uid:action.payload.uid,
             };
         default:
             return{

@@ -7,5 +7,7 @@ export const AUTH_ERROR = 'AUTH_ERROR';
 
 export const EMPLOYER_UPDATE = 'EMPLOYER_UPDATE';
 export const EMPLOYER_CREATE = 'EMPLOYER_CREATE';
+export const EMPLOYEE_EDIT = 'EMPLOYEE_EDIT';
 export const GET_EMPLOYEES = 'GET_EMPLOYEES';
+export const SET_EMPLOYEES = 'SET_EMPLOYEES';
 export const RESET_DATA = 'RESET_DATA';

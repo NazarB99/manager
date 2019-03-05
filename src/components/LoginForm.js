@@ -8,32 +8,40 @@ class LoginForm extends Component {
 
     emailChangeHandler = (text) => {
         this.props.emailTyping(text);
-    }
+    };
 
     passwordChangeHandler = (text) => {
         this.props.passwordTyping(text);
-    }
+    };
 
     onLogin = () => {
         const { email, password } = this.props.auth;
         this.props.loginUser(email, password)
-    }
+    };
 
     renderErrorOrShowSpinner = () => {
         const { error, loading } = this.props.auth;
         if (error !== null) {
             return (
-                <View style={{ backgroundColor: 'white', marginTop: 10 }}>
+                <View style={{ backgroundColor: 'white', marginTop: 10,flex:1 }}>
                     <Text style={{ fontSize: 15, alignSelf: 'center', color: 'darkred' }}>{error}</Text>
+                    <CardSection>
+                        <Button onPress={this.onLogin}>Login</Button>
+                    </CardSection>
                 </View>
             )
         }
         else if (loading === true) {
             return (
-                <Spinner size='small' />
+                <Spinner />
             )
         }
-    }
+        else if (loading === false && error === null) {
+            return (
+                <Button onPress={this.onLogin}>Login</Button>
+            )
+        }
+    };
 
     render() {
         const { email, password } = this.props.auth;
@@ -45,9 +53,8 @@ class LoginForm extends Component {
                 <CardSection>
                     <Input secureTextEntry={true} onChangeText={(text) => this.passwordChangeHandler(text)} value={password} placeholder="password" label="Password" />
                 </CardSection>
-                {this.renderErrorOrShowSpinner()}
                 <CardSection>
-                    <Button onPress={this.onLogin}>Login</Button>
+                    {this.renderErrorOrShowSpinner()}
                 </CardSection>
             </Card>
         )
@@ -56,6 +63,6 @@ class LoginForm extends Component {
 
 const mapStateToProps = state => ({
     auth: state.auth
-})
+});
 
 export default connect(mapStateToProps, { emailTyping, passwordTyping, loginUser })(LoginForm);

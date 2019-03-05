@@ -7,7 +7,7 @@ const Spinner = ({size}) => {
           <ActivityIndicator size={size || 'large'}/>
       </View>
     )
-}
+};
 
 const style={
     spinnerStyle:{
@@ -15,6 +15,6 @@ const style={
         justifyContent:'center',
         flex:1
     }
-}
+};
 
 export {Spinner};
