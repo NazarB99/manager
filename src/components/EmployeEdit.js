@@ -2,9 +2,16 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux';
 import EmployeeForm from './EmployeeForm';
 import {employersUpdate,employersCreate, employeeData,employeeEdit} from '../actions/employersActions';
-import {Card, CardSection, Button} from '../common';
+import {Card, CardSection, Button, Confirm} from '../common';
 
 class EmployeeEdit extends Component {
+    constructor(){
+        super();
+
+        this.state = {
+            visible:false
+        }
+    }
 
     componentWillMount(){
         const {name,phone,shift,uid} = this.props;
@@ -16,6 +23,10 @@ class EmployeeEdit extends Component {
         this.props.employeeEdit(name,phone,shift,uid);
     };
 
+    onDeleteButton = () => {
+        this.setState({visible:true})
+    };
+
     render() {
         return (
             <Card>
@@ -23,6 +34,10 @@ class EmployeeEdit extends Component {
                 <CardSection>
                     <Button onPress={() => this.onButtonPress()}>Save</Button>
                 </CardSection>
+                <CardSection>
+                    <Button onPress={() => this.onDeleteButton()}>Fire</Button>
+                </CardSection>
+                <Confirm visible={this.state.visible}/>
             </Card>
         )
     }

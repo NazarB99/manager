@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import React, {Component} from 'react'
-import {View, Text, FlatList} from 'react-native';
+import {FlatList} from 'react-native';
 import {getEmployees} from '../actions/employersActions';
 import {connect} from 'react-redux';
 import ListItem from './ListItem';
