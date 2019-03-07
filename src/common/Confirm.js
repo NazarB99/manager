@@ -3,25 +3,26 @@ import {View, Modal, Text} from 'react-native';
 import {CardSection, Button} from "../common";
 
 class Confirm extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-            visible:false
+            visible: false
         }
     }
 
-    componentWillReceiveProps(nextProps){
-        this.setState({visible:nextProps.visible})
+    componentWillReceiveProps(nextProps) {
+        this.setState({visible: nextProps.visible});
+
     }
 
     onClose = () => {
-      this.setState({visible:false})
+        this.setState({visible: false});
     };
 
     render() {
-        return(
+        return (
             <View>
-                <Modal animationType="slide" transparent={false}
+                <Modal animationType="fade" transparent={false}
                        visible={this.state.visible}
                        onRequestClose={() => console.log('Modal has been closed')}>
                     <View style={styles.container}>
@@ -30,7 +31,7 @@ class Confirm extends Component {
                         </CardSection>
                         <CardSection style={styles.cardSectionStyle}>
                             <Button>Yes</Button>
-                            <Button onPress={this.onClose}>No</Button>
+                            <Button onPress={() => this.onClose()}>No</Button>
                         </CardSection>
                     </View>
                 </Modal>
@@ -40,21 +41,21 @@ class Confirm extends Component {
 }
 
 const styles = {
-    container:{
+    container: {
         flex: 1,
-        height:200,
-        position:'relative',
+        height: 200,
+        position: 'relative',
         justifyContent: 'center',
-        backgroundColor:'rgba(0,0,0,0.75)'
+        backgroundColor: 'rgba(0,0,0,0.75)'
     },
-    textStyle:{
-        flex:1,
-        fontSize:18,
-        textAlign:'center',
-        lineHeight:40
+    textStyle: {
+        flex: 1,
+        fontSize: 18,
+        textAlign: 'center',
+        lineHeight: 40
     },
-    cardSectionStyle:{
-        justifyContent:'center'
+    cardSectionStyle: {
+        justifyContent: 'center'
     }
 };
 
